@@ -22,7 +22,10 @@ mongoose.connect(process.env.URLDB, {
         console.log('urldb:',process.env.URLDB);
         if(err) throw err;
         console.log('Base de datos online')
-    }).catch( err => console.log );
+    }).catch( err => {
+        console.log('Database Error');
+        console.log(err);
+    } );
 
 
 
