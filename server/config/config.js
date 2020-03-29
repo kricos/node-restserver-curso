@@ -8,10 +8,13 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
 let urlDB;
 
-// if( process.env.NODE_ENV === 'dev' ){
-//     urlDB = 'mongodb://localhost:27017/cafe'
-// }else{
+if( process.env.NODE_ENV === 'dev' ){
+    urlDB = 'mongodb://localhost:27017/cafe'
+}else{
     urlDB = 'mongodb+srv://fhernandez:m1aW5vWkM1SBj1Kn@cluster0-iwgld.mongodb.net/cafe?retryWrites=true&w=majority';
-// }
+}
 
-process.env.URLDB = urlDB;
+// mongodb+srv://fhernandez:m1aW5vWkM1SBj1Kn@cluster0-iwgld.mongodb.net/cafe
+
+
+process.env.URLDB = process.env.URLDB || urlDB;
