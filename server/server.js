@@ -19,9 +19,10 @@ mongoose.connect(process.env.URLDB, {
         useCreateIndex: true, 
         useFindAndModify:false }, 
     (err, res)=>{
+        console.log('urldb:',process.env.URLDB);
         if(err) throw err;
         console.log('Base de datos online')
-    });
+    }).catch( err => console.log );
 
 
 
