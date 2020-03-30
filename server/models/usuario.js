@@ -1,12 +1,6 @@
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
-
-let rolesValidos = {
-    values: ['ADMIN_ROLE','USER_ROLE'],
-    message: '{VALUE}  no es un rol valido'
-};
-
-
+const { rolesValidos } = require('./../middlewares/autenticacion');
 let Schema = mongoose.Schema;
 
 let usuarioSchema = new Schema({

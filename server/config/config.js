@@ -4,6 +4,14 @@ process.env.PORT = process.env.PORT || 3000;
 // Entorno
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
+// vencimiento 
+
+process.env.CADUCIDAD = 60*60*24*30;
+
+// seed de autenticacion
+
+process.env.SEED = process.env.SEED || 'Secreto1234';
+
 // Base de datos
 
 let urlDB;
