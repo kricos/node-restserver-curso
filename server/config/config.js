@@ -12,6 +12,10 @@ process.env.CADUCIDAD = 60*60*24*30;
 
 process.env.SEED = process.env.SEED || 'Secreto1234';
 
+// cliend id google
+
+process.env.G_CLIENT_ID = process.env.G_CLIENT_ID || '156240241286-feev27s3tbimpmv8sklmpln6a118pdde.apps.googleusercontent.com';
+
 // Base de datos
 
 let urlDB;
