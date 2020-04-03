@@ -48,7 +48,13 @@ app.put('/upload/:tipo/:id', function(req, res) {
         })
     }
     nombreArchivo = `${id}-${ new Date().getMilliseconds() }.${extension}`;
-    archivo.mv( path.resolve( __dirname, `../../uploads/${ tipo }/${nombreArchivo}`), (err) => {
+    let pathArchivo = path.resolve( __dirname, `./../../uploads/${ tipo }/${nombreArchivo}`);
+    console.log (__dirname);
+    console.log (pathArchivo);
+    // if( fs.existsSync(pathImage)){
+    //     fs.unlinkSync(pathImage);
+    // }
+    archivo.mv( pathArchivo , (err) => {
         if(err){
             return res.status(501).json({
                 ok:false,
