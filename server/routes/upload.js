@@ -48,9 +48,9 @@ app.put('/upload/:tipo/:id', function(req, res) {
         })
     }
     nombreArchivo = `${id}-${ new Date().getMilliseconds() }.${extension}`;
-    archivo.mv(`./uploads/${ tipo }/${nombreArchivo}`, (err) => {
+    archivo.mv( path.resolve( __dirname, `../../uploads/${ tipo }/${nombreArchivo}`), (err) => {
         if(err){
-            return res.status(500).json({
+            return res.status(501).json({
                 ok:false,
                 err
             });
@@ -120,10 +120,6 @@ function imagenUsuario(id, res, nombreArchivo ){
                 }
             });
         }
-        // let pathImage = path.resolve(__dirname, `./../../uploads/usuarios/${usuarioDB.img}`);
-        // if( fs.existsSync(pathImage)){
-        //     fs.unlinkSync(pathImage);
-        // }
         borrarArchivo(usuarioDB.img,'usuarios');
 
         usuarioDB.img = nombreArchivo;
@@ -140,7 +136,7 @@ function imagenUsuario(id, res, nombreArchivo ){
 }
 
 function borrarArchivo(nombreImagen, tipos ){
-    let pathImage = path.resolve(__dirname, `./../../uploads/${tipos}/${nombreImagen}`);
+    let pathImage = path.resolve(__dirname, `../../uploads/${tipos}/${nombreImagen}`);
     if( fs.existsSync(pathImage)){
         fs.unlinkSync(pathImage);
     }
